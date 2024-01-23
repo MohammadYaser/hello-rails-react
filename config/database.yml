@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: mohammad_yaser
+  password: 456
+  host: localhost
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: hello_react_rails_development
+test:
+  <<: *default
+  database: hello_react_rails_test
+
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
